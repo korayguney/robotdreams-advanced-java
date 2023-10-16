@@ -1,6 +1,6 @@
 package com.robotdreams.insurance.model;
 
-import jakarta.persistence.Entity;
+import javax.persistence.Entity;
 
 @Entity
 public class Motorcycle extends Vehicle {
