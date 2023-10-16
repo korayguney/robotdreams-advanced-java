@@ -3,10 +3,7 @@ package com.robotdreams.insurance.service.impl;
 import com.robotdreams.insurance.model.Customer;
 import com.robotdreams.insurance.model.Insurance;
 import com.robotdreams.insurance.model.Vehicle;
-import com.robotdreams.insurance.model.dto.CreditCardValidationRequest;
-import com.robotdreams.insurance.model.dto.CreditCardValidationResponse;
-import com.robotdreams.insurance.model.dto.InsurancePaymentRequest;
-import com.robotdreams.insurance.model.dto.InsurancePaymentResponse;
+import com.robotdreams.insurance.model.dto.*;
 import com.robotdreams.insurance.repository.CustomerRepository;
 import com.robotdreams.insurance.repository.InsuranceRepository;
 import com.robotdreams.insurance.service.CustomerService;
@@ -45,7 +42,7 @@ public class InsuranceServiceImpl implements InsuranceService {
                 .creditCardNumber(paymentRequest.getCreditCard().getCardNumber())
                 .build();
 
-        CreditCardValidationResponse validationResponse = restTemplate.postForObject("http://localhost:8081/creditcards/validate",
+        CreditCardValidationResponse validationResponse = restTemplate.postForObject("http://VALIDATION-SERVICE/creditcards/validate",
                 validationRequest, CreditCardValidationResponse.class);
 
         // pay insurance policy amount
@@ -63,6 +60,14 @@ public class InsuranceServiceImpl implements InsuranceService {
             log.info("Insurance transaction saved to database successfully!");
 
             // notify customer about insurance policy
+            NotificationRequest notificationRequest = NotificationRequest.builder()
+                    .toCustomerId(customer.getId())
+                    .message("Hello " + customer.getFullName() + ", Insurance policy successfully generated!")
+                    .toCustomerPhone(customer.getPhoneNumber())
+                    .build();
+
+            restTemplate.postForObject("http://NOTIFICATION-SERVICE/notifications",
+                    notificationRequest, Boolean.class);
 
         } else {
             String creditCardNumberAsStr = String.valueOf(validationRequest.getCreditCardNumber());
