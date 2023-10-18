@@ -1,5 +1,10 @@
 package com.robotdreams.insurance.service.impl;
 
+import com.robotdreams.clients.notification.NotificationClient;
+import com.robotdreams.clients.notification.NotificationRequest;
+import com.robotdreams.clients.validation.CreditCardValidationClient;
+import com.robotdreams.clients.validation.CreditCardValidationRequest;
+import com.robotdreams.clients.validation.CreditCardValidationResponse;
 import com.robotdreams.insurance.model.Customer;
 import com.robotdreams.insurance.model.Insurance;
 import com.robotdreams.insurance.model.Vehicle;
@@ -27,6 +32,8 @@ public class InsuranceServiceImpl implements InsuranceService {
     private final CustomerService customerService;
     private final VehicleService vehicleService;
     private final RestTemplate restTemplate;
+    private final CreditCardValidationClient creditCardValidationClient;
+    private final NotificationClient notificationClient;
 
     @Override
     @Transactional
@@ -42,8 +49,10 @@ public class InsuranceServiceImpl implements InsuranceService {
                 .creditCardNumber(paymentRequest.getCreditCard().getCardNumber())
                 .build();
 
-        CreditCardValidationResponse validationResponse = restTemplate.postForObject("http://VALIDATION-SERVICE/creditcards/validate",
-                validationRequest, CreditCardValidationResponse.class);
+       // CreditCardValidationResponse validationResponse = restTemplate.postForObject("http://VALIDATION-SERVICE/creditcards/validate",
+       //         validationRequest, CreditCardValidationResponse.class);
+
+        CreditCardValidationResponse validationResponse = creditCardValidationClient.validateCreditCard(validationRequest);
 
         // pay insurance policy amount
         if (validationResponse.isValid()) {
@@ -66,8 +75,9 @@ public class InsuranceServiceImpl implements InsuranceService {
                     .toCustomerPhone(customer.getPhoneNumber())
                     .build();
 
-            restTemplate.postForObject("http://NOTIFICATION-SERVICE/notifications",
-                    notificationRequest, Boolean.class);
+           //restTemplate.postForObject("http://NOTIFICATION-SERVICE/notifications",
+           //        notificationRequest, Boolean.class);
+            notificationClient.sendNotification(notificationRequest);
 
         } else {
             String creditCardNumberAsStr = String.valueOf(validationRequest.getCreditCardNumber());

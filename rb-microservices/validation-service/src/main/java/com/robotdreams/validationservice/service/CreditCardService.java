@@ -1,8 +1,8 @@
 package com.robotdreams.validationservice.service;
 
 
-import com.robotdreams.validationservice.model.CreditCardValidationRequest;
-import com.robotdreams.validationservice.model.CreditCardValidationResponse;
+import com.robotdreams.clients.validation.CreditCardValidationRequest;
+import com.robotdreams.clients.validation.CreditCardValidationResponse;
 import com.robotdreams.validationservice.model.CustomerCreditCardValidationHistory;
 import com.robotdreams.validationservice.repository.CustomerCreditCardValidationHistoryRepository;
 import lombok.RequiredArgsConstructor;

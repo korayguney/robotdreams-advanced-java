@@ -1,6 +1,6 @@
 package com.robotdreams.notification.controller;
 
-import com.robotdreams.notification.model.NotificationRequest;
+import com.robotdreams.clients.notification.NotificationRequest;
 import com.robotdreams.notification.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

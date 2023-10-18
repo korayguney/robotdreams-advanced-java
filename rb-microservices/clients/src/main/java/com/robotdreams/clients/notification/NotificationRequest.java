@@ -1,4 +1,4 @@
-package com.robotdreams.insurance.model.dto;
+package com.robotdreams.clients.notification;
 
 
 import lombok.AllArgsConstructor;

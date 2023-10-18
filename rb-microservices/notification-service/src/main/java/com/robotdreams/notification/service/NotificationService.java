@@ -1,6 +1,6 @@
 package com.robotdreams.notification.service;
 
-import com.robotdreams.notification.model.NotificationRequest;
+import com.robotdreams.clients.notification.NotificationRequest;
 import com.robotdreams.notification.model.Notification;
 import com.robotdreams.notification.repository.NotificationEntityRepository;
 import lombok.RequiredArgsConstructor;

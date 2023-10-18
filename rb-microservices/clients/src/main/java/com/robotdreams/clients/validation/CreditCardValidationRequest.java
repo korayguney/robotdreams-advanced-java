@@ -1,4 +1,4 @@
-package com.robotdreams.validationservice.model;
+package com.robotdreams.clients.validation;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
