@@ -13,6 +13,7 @@
         <module>rb-02</module>
         <module>rb-03</module>
         <module>rb-microservices</module>
+        <module>rb-microservices/rabbitmq</module>
     </modules>
 
     <properties>
