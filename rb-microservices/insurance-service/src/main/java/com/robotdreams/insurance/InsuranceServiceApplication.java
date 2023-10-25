@@ -9,7 +9,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {
+                "com.robotdreams.insurance",
+                "com.robotdreams.rabbitmq"
+        }
+)
 @EnableEurekaClient
 @EnableFeignClients(
         basePackages = {

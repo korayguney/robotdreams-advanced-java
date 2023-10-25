@@ -15,8 +15,11 @@ import com.robotdreams.insurance.service.CustomerService;
 import com.robotdreams.insurance.service.InsuranceService;
 import com.robotdreams.insurance.service.VehicleService;
 import com.robotdreams.insurance.exception.CreditCardValidationException;
+import com.robotdreams.rabbitmq.RabbitMQMessageProducer;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
@@ -26,7 +29,18 @@ import java.time.LocalDate;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+@Getter
 public class InsuranceServiceImpl implements InsuranceService {
+
+    @Value("${rabbitmq.exchanges.internal}")
+    private String notificationExchange;
+
+    @Value("${rabbitmq.queues.notification}")
+    private String notificationQueue;
+
+    @Value("${rabbitmq.routing-keys.internal-notification}")
+    private String notificationRoutingKey;
+
     private final InsuranceRepository insuranceRepository;
     private final CustomerRepository customerRepository; // Not recommended!
     private final CustomerService customerService;
@@ -34,6 +48,7 @@ public class InsuranceServiceImpl implements InsuranceService {
     private final RestTemplate restTemplate;
     private final CreditCardValidationClient creditCardValidationClient;
     private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer mqMessageProducer;
 
     @Override
     @Transactional
@@ -77,7 +92,10 @@ public class InsuranceServiceImpl implements InsuranceService {
 
            //restTemplate.postForObject("http://NOTIFICATION-SERVICE/notifications",
            //        notificationRequest, Boolean.class);
-            notificationClient.sendNotification(notificationRequest);
+            //notificationClient.sendNotification(notificationRequest);
+            mqMessageProducer.publish(notificationRequest,
+                    notificationExchange,
+                    notificationRoutingKey);
 
         } else {
             String creditCardNumberAsStr = String.valueOf(validationRequest.getCreditCardNumber());

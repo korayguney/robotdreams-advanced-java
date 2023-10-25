@@ -9,8 +9,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-import java.time.LocalDateTime;
-
 @SpringBootApplication(
         scanBasePackages = {
                 "com.robotdreams.notification",
@@ -23,6 +21,7 @@ public class NotificationServiceApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(NotificationServiceApplication.class, args);
     }
+
 
     @Autowired
     RabbitMQMessageProducer producer;
@@ -40,4 +39,5 @@ public class NotificationServiceApplication implements CommandLineRunner {
                 config.getNotificationExchange(),
                 config.getNotificationRoutingKey());
     }
+
 }

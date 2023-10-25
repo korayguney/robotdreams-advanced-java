@@ -23,6 +23,8 @@
         <module>notification-service</module>
         <module>eureka-server</module>
         <module>clients</module>
+        <module>rabbitmq</module>
+        <module>apigateway</module>
     </modules>
 
 </project>
