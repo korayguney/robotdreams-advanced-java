@@ -14,6 +14,7 @@
         <module>rb-03</module>
         <module>rb-microservices</module>
         <module>rb-dockerfile</module>
+        <module>rb-k8s-helloworld</module>
     </modules>
 
     <properties>
