@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: 8080
 spring:
   application:
-    name: notification-service
+    name: insurance-service
   datasource:
     password: robotdreams
-    url: jdbc:postgresql://postgres:5432/notification
+    url: jdbc:postgresql://postgres:5432/insurance
     username: robotdreams
   jpa:
     hibernate:

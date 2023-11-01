@@ -42,29 +42,29 @@ services:
       - "15672:15672"
     networks:
       - spring
-  eureka-server:
-    image: korayguney/eureka-server:latest
-    container_name: eureka-server
-    ports:
-      - "8761:8761"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - zipkin
-  apigateway:
-    image: korayguney/apigateway:latest
-    container_name: apigateway
-    ports:
-      - "8083:8083"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - zipkin
-      - eureka-server
+#  eureka-server:
+#    image: korayguney/eureka-server:latest
+#    container_name: eureka-server
+#    ports:
+#      - "8761:8761"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#  apigateway:
+#    image: korayguney/apigateway:latest
+#    container_name: apigateway
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#      - eureka-server
   insurance-service:
     image: korayguney/insurance-service:latest
     container_name: insurance-service
@@ -77,7 +77,7 @@ services:
       - postgres
     depends_on:
       - zipkin
-      - eureka-server
+#      - eureka-server
       - postgres
       - rabbitmq
   notification-service:
@@ -92,7 +92,7 @@ services:
       - postgres
     depends_on:
       - zipkin
-      - eureka-server
+#      - eureka-server
       - postgres
       - rabbitmq
   validation-service:
@@ -107,7 +107,7 @@ services:
       - postgres
     depends_on:
       - zipkin
-      - eureka-server
+#      - eureka-server
       - postgres
 networks:
   postgres:

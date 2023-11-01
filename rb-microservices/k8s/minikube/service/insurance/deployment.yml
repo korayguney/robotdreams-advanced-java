@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insurance-service
+  labels:
+    app: insurance-service
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: insurance-service
+      labels:
+        app: insurance-service
+    spec:
+      containers:
+        - name: insurance-service
+          image: korayguney/insurance-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kube
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: insurance-service
