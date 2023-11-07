@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/rb-01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-01/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-02/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-02/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-03/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-03/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-dockerfile/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-dockerfile/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-final-project/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-k8s-helloworld/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-k8s-helloworld/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/apigateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/apigateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/clients/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/clients/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/insurance-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/insurance-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/notification-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/notification-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/rabbitmq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/rabbitmq/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/validation-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rb-microservices/validation-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
